@@ -159,4 +159,34 @@ git push origin --delete f2
 - F1 (f1.txt)
 - f2 (Deleted)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
+  # Git Branching & Merging Assignment
+
+This project demonstrates a standard DevOps workflow involving branch creation, feature isolation, and cross-branch synchronization.
+
+## 🚀 Workflow Summary
+
+| Step | Action | Description |
+| :--- | :--- | :--- |
+| **1** | Initialize | Setup master branch with `master.txt`. |
+| **2** | Branching | Create `public1`, `public2`, and `private` environments. |
+| **3** | Feature Work | Add content to `public1`. |
+| **4** | Integration | Merge public features into `master`. |
+| **5** | Updates | Modify `master.txt` in `private` and sync to all branches. |
+
+---
+
+## 🛠 Commands Executed
+
+### 1. Initialization and Setup
+```bash
+git init
+touch master.txt
+git add master.txt
+git commit -m "Step 1: Initialize master with master.txt"
+
+git branch public1
+git branch public2
+git branch private
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
