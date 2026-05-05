@@ -94,34 +94,69 @@ The Stash Strategy: Used git stash -u because develop.txt was a new, untracked f
 
 Branch Isolation: Ensured feature1 and develop remained independent until the specific tasks required a switch.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Project Overview
 Git & GitHub Branching Workflow
--This repository demonstrates a standard Git branching strategy, including branch creation, file management, and remote synchronization.                            🚀 Workflow Tasks Initialize a local working directory with Develop, F1, and f2 branches.Commit core files to specific branches.Push all local branches to the remote GitHub repository.Perform cleanup by deleting branches locally and remotely.
-💻 Commands Execution1. Initialization & Master BranchSetup the repository and commit the primary configuration file.Bashgit init
+This project demonstrates basic Git operations including multi-branch management, file versioning, and remote synchronization with GitHub.
+
+## Tasks Performed
+1. Initialized a Git working directory.
+2. Created branches: Develop, F1, and f2.
+3. Committed main.txt to the master branch.
+4. Committed branch-specific files: develop.txt, f1.txt, and f2.txt.
+5. Pushed all branches to the remote GitHub repository.
+6. Cleaned up by deleting the f2 branch locally and on GitHub.
+
+---
+
+## Execution Commands
+
+### Step 1: Initial Setup
+git init
 touch main.txt
 git add main.txt
-git commit -m "docs: add main.txt to master"
-2. Branch ArchitectureCreate the environment and feature branches.Bashgit branch Develop
+git commit -m "Initial commit: add main.txt"
+
+### Step 2: Branch Creation
+git branch Develop
 git branch F1
 git branch f2
-3. File DistributionSwitch to each branch to add their respective files.Develop BranchBashgit checkout Develop
-touch develop.txt
-git add develop.txt && git commit -m "feat: add develop.txt"
-Feature Branches (F1 & f2)Bashgit checkout F1
-touch f1.txt
-git add f1.txt && git commit -m "feat: add f1.txt"
 
+### Step 3: File Management per Branch
+# Develop Branch
+git checkout Develop
+touch develop.txt
+git add develop.txt
+git commit -m "Add develop.txt to Develop branch"
+
+# F1 Branch
+git checkout F1
+touch f1.txt
+git add f1.txt
+git commit -m "Add f1.txt to F1 branch"
+
+# f2 Branch
 git checkout f2
 touch f2.txt
-git add f2.txt && git commit -m "feat: add f2.txt"
-4. GitHub SynchronizationLink the local repository to GitHub and push all branches at once.Bash# Replace <URL> with your specific GitHub Repository URL
+git add f2.txt
+git commit -m "Add f2.txt to f2 branch"
+
+### Step 4: GitHub Integration
+# Note: Replace <URL> with your specific repository link
 git remote add origin <URL>
 git push origin --all
-5. Repository CleanupRemove the f2 feature branch from both local and remote environments.Bash# Return to master before deletion
+
+### Step 5: Branch Deletion
+# Return to master to perform deletion
 git checkout master
-
-# Delete locally
 git branch -d f2
-
-# Delete from GitHub
 git push origin --delete f2
-🛠 Summary TableBranchFile IncludedStatusmastermain.txtActiveDevelopdevelop.txtActiveF1f1.txtActivef2f2.txtDeleted⚠️ A Note on PrecisionCase Sensitivity: Git is case-sensitive. Notice that Develop and F1 start with capitals while f2 is lowercase. Follow this exactly to avoid "branch not found" errors.Active Branch: You cannot delete f2 while you are standing on it. Always checkout master first.
+
+---
+
+## Final Branch Structure
+- master (main.txt)
+- Develop (develop.txt)
+- F1 (f1.txt)
+- f2 (Deleted)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
